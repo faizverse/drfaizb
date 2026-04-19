@@ -125,6 +125,22 @@ filterBtns.forEach(btn => {
 
 
 /* ============================================================
+   YOUTUBE LITE-EMBED — click thumbnail to load player
+   ============================================================ */
+document.querySelectorAll('.yt-lite').forEach(el => {
+  el.addEventListener('click', () => {
+    const id = el.dataset.id;
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    el.innerHTML = '';
+    el.appendChild(iframe);
+  }, { once: true });
+});
+
+
+/* ============================================================
    SMOOTH SCROLL — respect prefers-reduced-motion
    ============================================================ */
 if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
