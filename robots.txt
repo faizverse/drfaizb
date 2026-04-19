@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://faizverse.github.io/drfaizb/sitemap.xml
