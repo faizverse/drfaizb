@@ -3,7 +3,7 @@
    ============================================================ */
 const navbar    = document.getElementById('navbar');
 const navLinks  = document.querySelectorAll('.nav-links a');
-const sections  = document.querySelectorAll('section[id], div[id="stats"]');
+const sections  = document.querySelectorAll('section[id]');
 
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 40);
@@ -87,7 +87,7 @@ function animateCounter(el) {
   requestAnimationFrame(tick);
 }
 
-const statsSection = document.getElementById('stats');
+const statsSection = document.querySelector('.hero-stats-grid');
 
 const statsObserver = new IntersectionObserver(
   ([entry]) => {
@@ -122,6 +122,26 @@ filterBtns.forEach(btn => {
     });
   });
 });
+
+
+/* ============================================================
+   SCROLL PROGRESS BAR + BACK TO TOP FAB
+   ============================================================ */
+const scrollProgress = document.getElementById('scroll-progress');
+const backToTop      = document.getElementById('back-to-top');
+
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const total    = document.documentElement.scrollHeight - window.innerHeight;
+  if (scrollProgress) scrollProgress.style.width = (scrolled / total * 100) + '%';
+  if (backToTop) backToTop.classList.toggle('visible', scrolled > 400);
+}, { passive: true });
+
+if (backToTop) {
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
 
 
 /* ============================================================
