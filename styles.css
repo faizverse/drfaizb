@@ -432,45 +432,6 @@ section { padding: 6rem 0; }
 }
 
 
-/* ============================================================
-   MOBILE HERO PHOTO
-   ============================================================ */
-.hero-photo-mobile {
-  display: none;
-  position: relative;
-  overflow: hidden;
-  margin-top: 2rem;
-}
-
-.hero-photo-mobile picture,
-.hero-photo-mobile img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  object-position: center 15%;
-  display: block;
-}
-
-.hero-photo-overlay {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 100%);
-  padding: 2rem 1.25rem 1.25rem;
-}
-
-.hero-photo-overlay .hero-pre {
-  color: rgba(255,255,255,0.8);
-  font-size: 0.65rem;
-  margin-bottom: 0.3rem;
-}
-
-.hero-photo-overlay .hero-tagline {
-  color: rgba(255,255,255,0.92);
-  border-left-color: rgba(255,255,255,0.5);
-  margin-bottom: 0;
-  font-size: 0.85rem;
-}
-
 
 /* ============================================================
    SCROLL PROGRESS BAR
@@ -1536,12 +1497,10 @@ footer a:hover { color: var(--blue); }
   /* Hero */
   .hero-inner           { grid-template-columns: 1fr; text-align: center; gap: 0; }
   .hero-photo-wrap      { display: none; }
-  .hero-photo-mobile    { display: block; }
   .hero-tagline         { margin-bottom: 1.75rem; }
   .hero-actions         { justify-content: center; }
   .hero-headline        { font-size: clamp(2.5rem, 10vw, 3.5rem); }
   .hero-stats-grid      { grid-template-columns: repeat(2, 1fr); }
-  #hero                 { padding-bottom: 0; }
 
   /* All grids → 1-col */
   .about-grid       { grid-template-columns: 1fr; gap: 2rem; }
