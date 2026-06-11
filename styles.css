@@ -960,8 +960,6 @@ section { padding: 6rem 0; }
 /* ============================================================
    AWARDS
    ============================================================ */
-#awards { background: var(--bg-alt); }
-
 .awards-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1477,7 +1475,6 @@ footer a:hover { color: var(--blue); }
   display: block;
 }
 
-#press { background: var(--bg); }
 #press .press-grid { margin-top: 2rem; }
 
 .consulting-meta {
@@ -1514,8 +1511,6 @@ footer a:hover { color: var(--blue); }
 /* ============================================================
    LEADERSHIP & ADMINISTRATION
    ============================================================ */
-#leadership { background: var(--bg-alt); }
-
 .admin-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
