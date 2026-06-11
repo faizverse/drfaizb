@@ -162,24 +162,21 @@ section { padding: 6rem 0; }
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
-  transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  background: var(--bg-hero);
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+  transition: box-shadow 0.3s ease;
 }
 
 #navbar.scrolled {
-  background: rgba(10,15,30,0.8);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid rgba(167,139,250,0.12);
+  box-shadow: 0 2px 12px rgba(26,39,68,0.15);
 }
 
 .nav-logo {
-  font-size: 1.05rem;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
   font-weight: 700;
-  letter-spacing: -0.03em;
-  background: linear-gradient(135deg, var(--blue), var(--purple));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  letter-spacing: 0.02em;
+  color: var(--gold);
 }
 
 .nav-links {
@@ -189,10 +186,11 @@ section { padding: 6rem 0; }
 }
 
 .nav-links a {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 500;
-  color: var(--text-2);
-  letter-spacing: -0.01em;
+  color: #a0b8d0;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   transition: color 0.2s ease;
   position: relative;
   padding-bottom: 2px;
@@ -203,13 +201,13 @@ section { padding: 6rem 0; }
   position: absolute;
   bottom: -2px; left: 0;
   width: 0; height: 1.5px;
-  background: var(--blue);
+  background: var(--gold);
   border-radius: 1px;
   transition: width 0.2s ease;
 }
 
-.nav-links a:hover { color: var(--text); }
-.nav-links a.active { color: var(--text); }
+.nav-links a:hover { color: #fff; }
+.nav-links a.active { color: var(--gold); }
 .nav-links a.active::after { width: 100%; }
 
 .hamburger {
@@ -236,18 +234,16 @@ section { padding: 6rem 0; }
   display: none;
   position: fixed;
   top: 52px; left: 0; right: 0;
-  background: rgba(10,15,30,0.92);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: var(--bg-hero);
   padding: 1.5rem 2rem;
   flex-direction: column;
   gap: 1.25rem;
   z-index: 999;
-  border-bottom: 1px solid rgba(167,139,250,0.12);
+  border-bottom: 1px solid rgba(201,168,76,0.2);
 }
 .mobile-menu.open { display: flex; }
-.mobile-menu a { font-size: 1rem; color: var(--text-2); font-weight: 500; letter-spacing: -0.01em; }
-.mobile-menu a:hover { color: var(--text); }
+.mobile-menu a { font-size: 1rem; color: #a0b8d0; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.mobile-menu a:hover { color: #fff; }
 
 
 /* ============================================================
