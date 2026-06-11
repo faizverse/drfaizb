@@ -43,9 +43,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #070c18; }
-::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--blue); }
+::-webkit-scrollbar-track { background: #e8edf4; }
+::-webkit-scrollbar-thumb { background: rgba(26,39,68,0.2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
@@ -93,7 +93,7 @@ h1, h2, h3, h4 {
    GRADIENT TEXT UTILITY
    ============================================================ */
 .grad {
-  background: linear-gradient(135deg, var(--blue) 0%, var(--purple) 100%);
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -111,9 +111,29 @@ h1, h2, h3, h4 {
 }
 section { padding: 6rem 0; }
 #research, #innovation, #teaching, #leadership, #press, #awards, #community, #publications, #contact {
-  border-top: 1px solid rgba(167,139,250,0.07);
+  border-top: 1px solid var(--divider);
 }
-.gold-line { display: none; }
+
+/* Section background pattern — alternating white / light-grey */
+#about      { background: var(--bg-alt); }
+#innovation { background: var(--bg-alt); }
+#leadership { background: var(--bg-alt); }
+#awards     { background: var(--bg-alt); }
+#publications { background: var(--bg-alt); }
+#research   { background: var(--bg); }
+#teaching   { background: var(--bg); }
+#press      { background: var(--bg); }
+#community  { background: var(--bg); }
+#contact    { background: var(--bg); }
+
+.gold-line {
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--gold);
+  margin: 0.85rem 0 2rem;
+  border-radius: 2px;
+}
 
 /* ============================================================
    FADE-IN ANIMATIONS
@@ -594,7 +614,7 @@ section { padding: 6rem 0; }
 /* ============================================================
    RESEARCH
    ============================================================ */
-#research { background: var(--bg-alt); position: relative; overflow: hidden; }
+#research { background: var(--bg); position: relative; overflow: hidden; }
 #research::after {
   content: '';
   position: absolute;
@@ -813,7 +833,7 @@ section { padding: 6rem 0; }
 /* ============================================================
    TEACHING
    ============================================================ */
-#teaching { background: var(--bg-alt); }
+#teaching { background: var(--bg); }
 
 .teaching-grid {
   display: grid;
@@ -1118,7 +1138,7 @@ section { padding: 6rem 0; }
 /* ============================================================
    CONTACT
    ============================================================ */
-#contact { background: var(--bg-alt); position: relative; overflow: hidden; }
+#contact { background: var(--bg); position: relative; overflow: hidden; }
 #contact::before {
   content: '';
   position: absolute;
@@ -1457,7 +1477,7 @@ footer a:hover { color: var(--blue); }
   display: block;
 }
 
-#press { background: var(--bg-alt); }
+#press { background: var(--bg); }
 #press .press-grid { margin-top: 2rem; }
 
 .consulting-meta {
