@@ -1114,17 +1114,6 @@ section { padding: 6rem 0; }
    CONTACT
    ============================================================ */
 #contact { background: var(--bg); position: relative; overflow: hidden; }
-#contact::before {
-  content: '';
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 500px; height: 500px;
-  background: radial-gradient(ellipse, rgba(167,139,250,0.07) 0%, transparent 65%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-}
 
 .contact-grid {
   display: grid;
@@ -1139,11 +1128,10 @@ section { padding: 6rem 0; }
   display: flex;
   align-items: center;
   gap: 1rem;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: var(--radius-m);
+  background: var(--bg-alt);
+  border: 1px solid var(--divider);
+  border-left: 3px solid var(--navy);
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
   padding: 1rem 1.25rem;
 }
 
@@ -1165,7 +1153,7 @@ section { padding: 6rem 0; }
   color: var(--text);
   letter-spacing: -0.01em;
 }
-.contact-item-text a:hover { color: var(--blue); }
+.contact-item-text a:hover { color: var(--gold); }
 
 .contact-links h3 {
   font-size: 1rem;
@@ -1181,33 +1169,32 @@ section { padding: 6rem 0; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: #ffffff;
+  border: 1px solid var(--divider);
+  border-top: 3px solid var(--gold);
   border-radius: var(--radius-m);
   padding: 0.9rem 1.15rem;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  transition: box-shadow 0.2s, transform 0.2s;
 }
-.ext-link:hover { border-color: rgba(167,139,250,0.35); box-shadow: 0 4px 20px rgba(167,139,250,0.08); transform: translateX(3px); }
+.ext-link:hover { box-shadow: var(--shadow-m); transform: translateX(3px); }
 
 .ext-link-text { font-size: 0.9rem; font-weight: 500; color: var(--text); display: flex; align-items: center; gap: 0.6rem; }
 .ext-link-arrow { font-size: 1rem; color: var(--text-3); transition: color 0.2s; }
-.ext-link:hover .ext-link-arrow { color: var(--blue); }
+.ext-link:hover .ext-link-arrow { color: var(--gold); }
 
 
 /* ============================================================
    FOOTER
    ============================================================ */
 footer {
-  background: var(--bg);
-  border-top: 0.5px solid var(--divider);
+  background: var(--bg-hero);
+  border-top: none;
   padding: 2rem 0;
   text-align: center;
 }
-footer p { font-size: 0.8rem; color: var(--text-3); }
-footer a { color: var(--text-2); transition: color 0.2s; }
-footer a:hover { color: var(--blue); }
+footer p { font-size: 0.8rem; color: #6a8fa8; }
+footer a { color: #a0b8d0; transition: color 0.2s; }
+footer a:hover { color: var(--gold); }
 
 
 /* ============================================================
@@ -1217,38 +1204,37 @@ footer a:hover { color: var(--blue); }
 /* Area icon boxes */
 .area-icon {
   width: 44px; height: 44px;
-  border-radius: 10px;
-  background: rgba(167,139,250,0.08);
+  border-radius: 6px;
+  background: var(--bg);
   display: flex; align-items: center; justify-content: center;
   margin-bottom: 1.25rem;
   flex-shrink: 0;
 }
-.area-icon svg { width: 22px; height: 22px; color: var(--blue); }
+.area-icon svg { width: 22px; height: 22px; color: var(--text); display: block; }
 
-/* Highlight icon: already sized as 40px box in existing CSS — just add SVG sizing */
-.highlight-icon svg { width: 20px; height: 20px; color: var(--blue); display: block; }
+.highlight-icon svg { width: 20px; height: 20px; color: var(--text); display: block; }
 
-/* Community icon: override emoji sizing */
+/* Community icon */
 .community-icon {
   width: 44px; height: 44px;
-  border-radius: 12px;
-  background: rgba(167,139,250,0.08);
+  border-radius: 6px;
+  background: var(--bg);
   display: flex; align-items: center; justify-content: center;
   margin-bottom: 1rem;
   font-size: inherit;
 }
-.community-icon svg { width: 22px; height: 22px; color: var(--blue); display: block; }
+.community-icon svg { width: 22px; height: 22px; color: var(--text); display: block; }
 
-/* Media icon: override emoji sizing */
+/* Media icon */
 .media-icon {
   width: 36px; height: 36px;
-  border-radius: 8px;
-  background: rgba(167,139,250,0.08);
+  border-radius: 6px;
+  background: var(--bg);
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
   padding-top: 0;
 }
-.media-icon svg { width: 18px; height: 18px; color: var(--blue); display: block; }
+.media-icon svg { width: 18px; height: 18px; color: var(--text); display: block; }
 
 /* Contact icon */
 .contact-icon {
@@ -1257,7 +1243,7 @@ footer a:hover { color: var(--blue); }
   flex-shrink: 0;
   font-size: inherit;
 }
-.contact-icon svg { width: 18px; height: 18px; color: var(--blue); display: block; }
+.contact-icon svg { width: 18px; height: 18px; color: var(--text); display: block; }
 
 
 /* ============================================================
