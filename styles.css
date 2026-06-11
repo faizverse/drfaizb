@@ -594,16 +594,7 @@ section { padding: 6rem 0; }
    RESEARCH
    ============================================================ */
 #research { background: var(--bg); position: relative; overflow: hidden; }
-#research::after {
-  content: '';
-  position: absolute;
-  top: -80px; right: -80px;
-  width: 400px; height: 400px;
-  background: radial-gradient(ellipse, rgba(56,189,248,0.07) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-}
+#research::after { display: none; }
 
 .research-areas {
   display: grid;
@@ -613,15 +604,14 @@ section { padding: 6rem 0; }
 }
 
 .area-card {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: #ffffff;
+  border: 1px solid var(--divider);
+  border-top: 3px solid var(--navy);
   border-radius: var(--radius-l);
   padding: 2rem;
-  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
-.area-card:hover { border-color: rgba(167,139,250,0.25); box-shadow: 0 8px 32px rgba(167,139,250,0.08); transform: translateY(-3px); }
+.area-card:hover { box-shadow: var(--shadow-m); transform: translateY(-3px); }
 
 .area-icon { font-size: 2rem; margin-bottom: 1rem; }
 
@@ -649,15 +639,14 @@ section { padding: 6rem 0; }
 }
 
 .project-card {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: var(--radius-m);
+  background: #ffffff;
+  border: 1px solid var(--divider);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
   padding: 1.25rem;
-  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
-.project-card:hover { border-color: rgba(167,139,250,0.25); box-shadow: 0 8px 32px rgba(167,139,250,0.08); }
+.project-card:hover { box-shadow: var(--shadow-m); transform: translateY(-2px); }
 
 .project-card h4 {
   font-size: 0.875rem;
@@ -681,12 +670,12 @@ section { padding: 6rem 0; }
 .project-funding {
   font-size: 0.8rem;
   font-weight: 700;
-  color: var(--blue);
+  color: var(--text);
 }
 .project-years {
   font-size: 0.75rem;
   font-weight: 500;
-  color: var(--text-3);
+  color: var(--gold);
 }
 
 
@@ -1393,8 +1382,8 @@ footer a:hover { color: var(--blue); }
   display: grid;
   grid-template-columns: 260px 1fr;
   gap: 2rem;
-  background: var(--bg);
-  border: 0.5px solid var(--divider);
+  background: #ffffff;
+  border: 1px solid var(--divider);
   border-radius: var(--radius-l);
   overflow: hidden;
   margin-top: 1.25rem;
@@ -1432,9 +1421,9 @@ footer a:hover { color: var(--blue); }
 .collab-body p { font-size: 0.875rem; color: var(--text-2); line-height: 1.7; }
 
 .consulting-card {
-  background: var(--bg);
-  border: 0.5px solid var(--divider);
-  border-left: 3px solid var(--blue);
+  background: #ffffff;
+  border: 1px solid var(--divider);
+  border-left: 3px solid var(--gold);
   border-radius: var(--radius-m);
   padding: 0;
   margin-top: 1.25rem;
