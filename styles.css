@@ -2,23 +2,26 @@
    TOKENS
    ============================================================ */
 :root {
-  --bg:         #0a0f1e;
-  --bg-alt:     #0d1525;
-  --text:       #f1f5f9;
-  --text-2:     #94a3b8;
-  --text-3:     #64748b;
-  --blue:       #a78bfa;
-  --blue-dark:  #9061f9;
-  --purple:     #38bdf8;
-  --divider:    rgba(255,255,255,0.08);
-  --radius-l:   18px;
-  --radius-m:   12px;
-  --radius-s:   980px;
-  --shadow-s:   0 2px 12px rgba(0,0,0,0.3);
-  --shadow-m:   0 4px 24px rgba(0,0,0,0.5);
-  --glass-bg:   rgba(255,255,255,0.04);
-  --glass-border: rgba(255,255,255,0.08);
-  --font: -apple-system, "SF Pro Display", "SF Pro Text", Inter, system-ui, sans-serif;
+  --bg:           #f4f7fb;
+  --bg-alt:       #ffffff;
+  --bg-hero:      #1a2744;
+  --text:         #1a2744;
+  --text-2:       #4a5568;
+  --text-3:       #64748b;
+  --gold:         #c9a84c;
+  --gold-dark:    #a8872e;
+  --gold-light:   #e8c97a;
+  --navy:         #1a2744;
+  --divider:      #d0dae8;
+  --radius-l:     8px;
+  --radius-m:     4px;
+  --radius-s:     3px;
+  --shadow-s:     0 1px 6px rgba(26,39,68,0.08);
+  --shadow-m:     0 4px 20px rgba(26,39,68,0.12);
+  --glass-bg:     #ffffff;
+  --glass-border: #d0dae8;
+  --font: -apple-system, "SF Pro Text", Inter, system-ui, sans-serif;
+  --font-serif:   Georgia, 'Times New Roman', serif;
 }
 
 /* ============================================================
