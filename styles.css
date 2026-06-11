@@ -22,10 +22,6 @@
   --glass-border: #d0dae8;
   --font: -apple-system, "SF Pro Text", Inter, system-ui, sans-serif;
   --font-serif:   Georgia, 'Times New Roman', serif;
-  /* backward-compat aliases — removed by Task 13 accent sweep */
-  --blue:       var(--gold);
-  --blue-dark:  var(--gold-dark);
-  --purple:     var(--gold-light);
 }
 
 /* ============================================================
@@ -62,12 +58,12 @@ h1, h2, h3, h4 {
 }
 
 .section-label {
-  font-size: 0.75rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--blue);
-  margin-bottom: 0.5rem;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
 }
 
 .section-title {
@@ -799,7 +795,7 @@ section { padding: 6rem 0; }
 .pub-link {
   font-size: 0.78rem;
   font-weight: 600;
-  color: var(--blue);
+  color: var(--gold);
   letter-spacing: -0.01em;
   transition: opacity 0.2s;
 }
@@ -821,11 +817,13 @@ section { padding: 6rem 0; }
 }
 
 .level-title {
-  font-size: 0.75rem;
+  font-family: var(--font-serif);
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-3);
+  font-style: italic;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text-2);
   margin-bottom: 0.85rem;
 }
 
@@ -1105,7 +1103,7 @@ section { padding: 6rem 0; }
   content: '→';
   position: absolute;
   left: 0;
-  color: var(--blue);
+  color: var(--gold);
   font-size: 0.75rem;
 }
 
@@ -1306,7 +1304,7 @@ footer a:hover { color: var(--gold); }
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--gold);
   margin: 3rem 0 1.25rem;
 }
 
@@ -1400,7 +1398,7 @@ footer a:hover { color: var(--gold); }
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--gold);
   margin-bottom: 0.6rem;
 }
 
@@ -1444,7 +1442,7 @@ footer a:hover { color: var(--gold); }
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--gold);
   margin-bottom: 0.6rem;
 }
 
@@ -1518,17 +1516,19 @@ footer a:hover { color: var(--gold); }
    ABOUT HIGHLIGHT LINKS
    ============================================================ */
 .highlight-text a {
-  color: var(--blue);
+  color: var(--text);
   text-decoration: none;
+  border-bottom: 1px solid var(--divider);
 }
-.highlight-text a:hover { text-decoration: underline; }
+.highlight-text a:hover { border-bottom-color: var(--gold); }
 
 .about-bio a {
-  color: var(--blue);
+  color: var(--text);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(201,168,76,0.4);
 }
-.about-bio a:hover { text-decoration: underline; }
+.about-bio a:hover { border-bottom-color: var(--gold); }
 
 
 /* ============================================================
