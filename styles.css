@@ -222,7 +222,7 @@ section { padding: 6rem 0; }
 .hamburger span {
   display: block;
   width: 22px; height: 1.5px;
-  background: var(--text);
+  background: #ffffff;
   border-radius: 1px;
   transition: 0.3s ease;
 }
