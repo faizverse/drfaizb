@@ -22,6 +22,10 @@
   --glass-border: #d0dae8;
   --font: -apple-system, "SF Pro Text", Inter, system-ui, sans-serif;
   --font-serif:   Georgia, 'Times New Roman', serif;
+  /* backward-compat aliases — removed by Task 13 accent sweep */
+  --blue:       var(--gold);
+  --blue-dark:  var(--gold-dark);
+  --purple:     var(--gold-light);
 }
 
 /* ============================================================
