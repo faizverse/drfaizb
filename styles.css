@@ -554,7 +554,7 @@ section { padding: 6rem 0; }
 
 .about-highlights {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   margin-top: 2.5rem;
 }
@@ -563,20 +563,19 @@ section { padding: 6rem 0; }
   display: flex;
   gap: 1rem;
   align-items: flex-start;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: #ffffff;
+  border: 1px solid var(--divider);
+  border-top: 3px solid var(--navy);
   border-radius: var(--radius-m);
   padding: 1.1rem 1.25rem;
-  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
-.highlight-card:hover { border-color: rgba(167,139,250,0.25); box-shadow: 0 8px 32px rgba(167,139,250,0.08); transform: translateY(-2px); }
+.highlight-card:hover { box-shadow: var(--shadow-m); transform: translateY(-2px); }
 
 .highlight-icon {
   width: 40px; height: 40px;
-  border-radius: 10px;
-  background: rgba(167,139,250,0.08);
+  border-radius: 6px;
+  background: var(--bg);
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
