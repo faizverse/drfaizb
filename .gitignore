@@ -1,0 +1,5 @@
+# macOS
+.DS_Store
+
+# Internal planning / agent docs — not part of the published site
+docs/
