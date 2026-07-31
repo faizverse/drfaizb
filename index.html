@@ -301,127 +301,107 @@
         </div>
       </div>
 
-      <!-- Funded projects -->
+      <!-- Funded projects
+           Authored in chronological order, latest first — the DOM order IS
+           the display order, so the full list is present without JS.
+           js/chart.js only sizes and colours the bars. -->
       <h3 class="projects-title fade-in">Funded Research Projects</h3>
 
-      <!-- Chart is built by js/chart.js from the data-* attributes on the
-           project cards below, so there is one source of truth. Without JS
-           this stays empty and the cards carry everything. -->
-      <div class="chart fade-in" id="fundingChart" hidden></div>
+      <ol class="funding-list fade-in" id="fundingList">
 
-      <div class="projects-grid">
-
-        <div class="card card--accent-left card--tight project-card fade-in"
-             data-amount="60000" data-start="2025" data-end="2027" data-role="Co-researcher"
-             data-short="AI &amp; Glycemic Response Testing">
-          <h4>Integrating AI with Glycemic Response Testing and Nutrition Composition Analysis for Nutrient Assessment of Malaysian Meals</h4>
-          <p class="project-funder">Geran Universiti Penyelidikan UKM · Co-researcher</p>
-          <div class="project-meta">
-            <span class="project-funding">RM 60,000</span>
-            <span class="project-years">2025 – 2027</span>
+        <li class="funding-row" data-amount="60000">
+          <div class="funding-main">
+            <h4 class="funding-title">Integrating AI with Glycemic Response Testing and Nutrition Composition Analysis for Nutrient Assessment of Malaysian Meals</h4>
+            <p class="funding-meta">Geran Universiti Penyelidikan UKM · Co-researcher · <span class="funding-years">2025–2027</span></p>
           </div>
-        </div>
+          <div class="funding-track"><span class="funding-bar"></span></div>
+          <p class="funding-value">RM 60,000</p>
+        </li>
 
-        <div class="card card--accent-left card--tight project-card fade-in delay-1"
-             data-amount="118000" data-start="2023" data-end="2025" data-role="Co-researcher"
-             data-short="Medical Image Segmentation">
-          <h4>Segmentation Techniques in Medical Image Mapping</h4>
-          <p class="project-funder">MOSTI Fundamental Research Grant · Co-researcher</p>
-          <div class="project-meta">
-            <span class="project-funding">RM 118,000</span>
-            <span class="project-years">2023 – 2025</span>
+        <li class="funding-row" data-amount="118000">
+          <div class="funding-main">
+            <h4 class="funding-title">Segmentation Techniques in Medical Image Mapping</h4>
+            <p class="funding-meta">MOSTI Fundamental Research Grant · Co-researcher · <span class="funding-years">2023–2025</span></p>
           </div>
-        </div>
+          <div class="funding-track"><span class="funding-bar"></span></div>
+          <p class="funding-value">RM 118,000</p>
+        </li>
 
-        <div class="card card--accent-left card--tight project-card fade-in delay-1"
-             data-amount="25000" data-start="2023" data-end="2025" data-role="Co-researcher"
-             data-short="Arduino Innovation Module">
-          <h4>Arduino Innovation Module Program</h4>
-          <p class="project-funder">Program STEM dan Minda UKM · Co-researcher</p>
-          <div class="project-meta">
-            <span class="project-funding">RM 25,000</span>
-            <span class="project-years">2023 – 2025</span>
+        <li class="funding-row" data-amount="25000">
+          <div class="funding-main">
+            <h4 class="funding-title">Arduino Innovation Module Program</h4>
+            <p class="funding-meta">Program STEM dan Minda UKM · Co-researcher · <span class="funding-years">2023–2025</span></p>
           </div>
-        </div>
+          <div class="funding-track"><span class="funding-bar"></span></div>
+          <p class="funding-value">RM 25,000</p>
+        </li>
 
-        <div class="card card--accent-left card--tight project-card fade-in delay-2"
-             data-amount="79500" data-start="2023" data-end="2024" data-role="Co-researcher"
-             data-short="Next Generation Bicycle Lighting">
-          <h4>Next Generation Bicycle Lighting System</h4>
-          <p class="project-funder">Geran Translasi UKM · Co-researcher</p>
-          <div class="project-meta">
-            <span class="project-funding">RM 79,500</span>
-            <span class="project-years">2023 – 2024</span>
+        <li class="funding-row" data-amount="79500">
+          <div class="funding-main">
+            <h4 class="funding-title">Next Generation Bicycle Lighting System</h4>
+            <p class="funding-meta">Geran Translasi UKM · Co-researcher · <span class="funding-years">2023–2024</span></p>
           </div>
-        </div>
+          <div class="funding-track"><span class="funding-bar"></span></div>
+          <p class="funding-value">RM 79,500</p>
+        </li>
 
-        <div class="card card--accent-left card--tight project-card fade-in"
-             data-amount="150000" data-start="2016" data-end="2018" data-role="System Developer"
-             data-short="MyCOMS Electric Car Sharing">
-          <h4>MyCOMS Electric Car Sharing System</h4>
-          <p class="project-funder">Toyota Auto Body Malaysia &amp; Universiti Putra Malaysia · System Developer</p>
-          <div class="project-meta">
-            <span class="project-funding">RM 150,000</span>
-            <span class="project-years">2016 – 2018</span>
+        <li class="funding-row" data-amount="20000">
+          <div class="funding-main">
+            <h4 class="funding-title">Autonomous Vehicle Control using Deep Learning</h4>
+            <p class="funding-meta">Geran Galakan Penyelidikan UKM · Project Leader · <span class="funding-years">2018–2020</span></p>
           </div>
-        </div>
+          <div class="funding-track"><span class="funding-bar"></span></div>
+          <p class="funding-value">RM 20,000</p>
+        </li>
 
-        <div class="card card--accent-left card--tight project-card fade-in delay-1"
-             data-amount="250000" data-start="2016" data-end="2017" data-role="Co-researcher"
-             data-short="Nano-Structure Surface Modification">
-          <h4>Nano-Structure Surface Modification</h4>
-          <p class="project-funder">Dana Impak Perdana UKM · Co-researcher</p>
-          <div class="project-meta">
-            <span class="project-funding">RM 250,000</span>
-            <span class="project-years">2016 – 2017</span>
+        <li class="funding-row" data-amount="150000">
+          <div class="funding-main">
+            <h4 class="funding-title">MyCOMS Electric Car Sharing System</h4>
+            <p class="funding-meta">Toyota Auto Body Malaysia &amp; Universiti Putra Malaysia · System Developer · <span class="funding-years">2016–2018</span></p>
           </div>
-        </div>
+          <div class="funding-track"><span class="funding-bar"></span></div>
+          <p class="funding-value">RM 150,000</p>
+        </li>
 
-        <div class="card card--accent-left card--tight project-card fade-in delay-2"
-             data-amount="223000" data-start="2015" data-end="2017" data-role="Co-researcher"
-             data-short="Non-Toxic Thin Film Solar Cells">
-          <h4>Non-Toxic Thin Film Solar Cells</h4>
-          <p class="project-funder">MOSTI Science Fund · Co-researcher</p>
-          <div class="project-meta">
-            <span class="project-funding">RM 223,000</span>
-            <span class="project-years">2015 – 2017</span>
+        <li class="funding-row" data-amount="250000">
+          <div class="funding-main">
+            <h4 class="funding-title">Nano-Structure Surface Modification</h4>
+            <p class="funding-meta">Dana Impak Perdana UKM · Co-researcher · <span class="funding-years">2016–2017</span></p>
           </div>
-        </div>
+          <div class="funding-track"><span class="funding-bar"></span></div>
+          <p class="funding-value">RM 250,000</p>
+        </li>
 
-        <div class="card card--accent-left card--tight project-card fade-in"
-             data-amount="83000" data-start="2015" data-end="2018" data-role="Co-researcher"
-             data-short="Graphene–Carbon Nanotube Hybrids">
-          <h4>Graphene–Carbon Nanotube Hybrid Structures</h4>
-          <p class="project-funder">MOSTI Fundamental Research Grant · Co-researcher</p>
-          <div class="project-meta">
-            <span class="project-funding">RM 83,000</span>
-            <span class="project-years">2015 – 2018</span>
+        <li class="funding-row" data-amount="83000">
+          <div class="funding-main">
+            <h4 class="funding-title">Graphene–Carbon Nanotube Hybrid Structures</h4>
+            <p class="funding-meta">MOSTI Fundamental Research Grant · Co-researcher · <span class="funding-years">2015–2018</span></p>
           </div>
-        </div>
+          <div class="funding-track"><span class="funding-bar"></span></div>
+          <p class="funding-value">RM 83,000</p>
+        </li>
 
-        <div class="card card--accent-left card--tight project-card fade-in delay-1"
-             data-amount="20000" data-start="2018" data-end="2020" data-role="Project Leader"
-             data-short="Autonomous Vehicle Control (Deep Learning)">
-          <h4>Autonomous Vehicle Control using Deep Learning</h4>
-          <p class="project-funder">Geran Galakan Penyelidikan UKM · Project Leader</p>
-          <div class="project-meta">
-            <span class="project-funding">RM 20,000</span>
-            <span class="project-years">2018 – 2020</span>
+        <li class="funding-row" data-amount="223000">
+          <div class="funding-main">
+            <h4 class="funding-title">Non-Toxic Thin Film Solar Cells</h4>
+            <p class="funding-meta">MOSTI Science Fund · Co-researcher · <span class="funding-years">2015–2017</span></p>
           </div>
-        </div>
+          <div class="funding-track"><span class="funding-bar"></span></div>
+          <p class="funding-value">RM 223,000</p>
+        </li>
 
-        <div class="card card--accent-left card--tight project-card fade-in delay-2"
-             data-amount="40000" data-start="2012" data-end="2015" data-role="Project Leader"
-             data-short="3D Nano-FinFET Device Simulator">
-          <h4>3D Nano-FinFET Device Simulator</h4>
-          <p class="project-funder">Geran Galakan Penyelidik Muda UKM · Project Leader</p>
-          <div class="project-meta">
-            <span class="project-funding">RM 40,000</span>
-            <span class="project-years">2012 – 2015</span>
+        <li class="funding-row" data-amount="40000">
+          <div class="funding-main">
+            <h4 class="funding-title">3D Nano-FinFET Device Simulator</h4>
+            <p class="funding-meta">Geran Galakan Penyelidik Muda UKM · Project Leader · <span class="funding-years">2012–2015</span></p>
           </div>
-        </div>
+          <div class="funding-track"><span class="funding-bar"></span></div>
+          <p class="funding-value">RM 40,000</p>
+        </li>
 
-      </div>
+      </ol>
+
+      <p class="funding-total fade-in" id="fundingTotal">10 funded projects · <strong>RM 1,048,500</strong> total · 2012–2027</p>
 
       <!-- Industry-University Collaboration -->
       <h3 class="projects-title fade-in">Industry Partnership</h3>

@@ -581,99 +581,111 @@
 }
 
 /* ============================================================
-   FUNDING CHART
-   Form: magnitude comparison -> horizontal bars, sorted desc.
-   Colour: one navy hue, sequential (darker = larger). One series,
-   so no legend. Values are direct-labelled, so no axis or grid —
-   they would only repeat what the labels already say.
+   FUNDING LIST
+   The section's only listing: project, funder/role/years, a
+   proportional bar, and the amount.
+
+   Rows are in chronological order, so bar order carries no meaning —
+   magnitude is read from bar length plus the sequential navy ramp
+   (darker = larger). Amounts are direct-labelled, so there is no axis
+   or gridline; they would only restate the labels.
    ============================================================ */
-.chart {
-  margin: 0 0 2rem;
-}
-.chart-list {
+.funding-list {
   display: flex;
   flex-direction: column;
-  gap: 2px; /* the 2px surface gap between adjacent marks */
   list-style: none;
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--divider);
 }
-.chart-row {
+
+.funding-row {
   display: grid;
-  grid-template-columns: minmax(0, 17rem) minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) minmax(5rem, 0.62fr) auto;
   align-items: center;
-  gap: 0 1rem;
-  padding: 0.4rem 0.5rem;
-  border-radius: var(--radius-s);
+  gap: 0 1.75rem;
+  padding: 0.85rem 0.6rem;
+  border-bottom: 1px solid var(--divider);
   transition: background var(--dur-fast) ease;
 }
-.chart-row:hover {
+.funding-row:hover {
   background: var(--bg-sunken);
 }
-.chart-name {
+
+.funding-title {
+  font-family: var(--font);
   font-size: var(--step--1);
-  color: var(--text);
+  font-weight: 600;
   line-height: var(--lh-snug);
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  color: var(--text);
+  margin-bottom: 0.2rem;
 }
-.chart-years {
+
+.funding-meta {
   font-size: var(--step--2);
   color: var(--text-3);
-  font-variant-numeric: tabular-nums;
+  line-height: var(--lh-snug);
 }
-.chart-track {
+.funding-years {
+  font-variant-numeric: tabular-nums;
+  color: var(--gold-ink);
+  font-weight: 600;
+}
+
+.funding-track {
   position: relative;
   height: 14px;
   min-width: 0;
 }
-.chart-bar {
+.funding-bar {
   position: absolute;
   inset: 0 auto 0 0;
   width: 0; /* js/chart.js grows this to the real value when in view */
   background: var(--bar, var(--viz-3));
   /* anchored at the baseline, rounded only at the data end */
   border-radius: 0 4px 4px 0;
-  transform-origin: 0 50%;
   transition: width var(--dur-slow) cubic-bezier(0.22, 1, 0.36, 1);
 }
-.chart-value {
+
+.funding-value {
   font-size: var(--step--1);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
+  text-align: right;
 }
-.chart-caption {
-  margin-top: 1rem;
+
+.funding-total {
+  margin-top: 1.1rem;
   font-size: var(--step--1);
   color: var(--text-3);
 }
-.chart-caption strong {
+.funding-total strong {
   color: var(--text-2);
 }
 
-/* Narrow: name and value share the first row, the bar spans beneath.
-   Cells are placed explicitly — a full-width track breaks auto-placement
-   and collapses the value column to zero width. */
-@media (max-width: 700px) {
-  .chart-row {
-    grid-template-columns: 1fr auto;
-    gap: 0.35rem 0.75rem;
-    padding: 0.6rem 0.5rem;
+/* Narrow: title and amount share the top row, the bar spans beneath.
+   Cells are placed explicitly — a full-width track breaks grid
+   auto-placement and collapses the amount column to zero width. */
+@media (max-width: 720px) {
+  .funding-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.5rem 1rem;
+    padding: 0.9rem 0.6rem;
   }
-  .chart-label {
+  .funding-main {
     grid-column: 1;
     grid-row: 1;
   }
-  .chart-value {
+  .funding-value {
     grid-column: 2;
     grid-row: 1;
     align-self: start;
   }
-  .chart-track {
+  .funding-track {
     grid-column: 1 / -1;
     grid-row: 2;
+    height: 12px;
   }
 }
 

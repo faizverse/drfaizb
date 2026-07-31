@@ -95,9 +95,8 @@ h4 {
 .card,
 .pub-card,
 .timeline-item,
-.chart-row,
+.funding-row,
 .media-item,
-.project-card,
 .ip-card,
 .admin-card {
   break-inside: avoid;
@@ -143,15 +142,21 @@ h4 {
   background: #000;
 }
 
+/* The funding bars carry no ink once backgrounds are stripped, so the
+   list prints as a clean project/amount table. */
+.funding-track {
+  display: none !important;
+}
+.funding-row {
+  grid-template-columns: 1fr auto !important;
+  padding: 0.25rem 0 !important;
+}
+
 /* Grids collapse to fewer, denser columns. */
 .research-areas,
 .ip-grid,
 .admin-grid,
 .about-highlights {
-  grid-template-columns: 1fr 1fr !important;
-  gap: 0.5rem !important;
-}
-.projects-grid {
   grid-template-columns: 1fr 1fr !important;
   gap: 0.5rem !important;
 }

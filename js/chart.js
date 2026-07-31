@@ -1,66 +1,29 @@
 /* ============================================================
-   FUNDING CHART
+   FUNDING BARS
 
-   Reads its data from the data-* attributes on the project cards,
-   so the markup stays the single source of truth and the chart can
-   never drift from the list below it.
+   The list in index.html is the content: every project, its funder,
+   role, years and amount are in the markup and readable without JS.
+   This file adds the one thing markup can't — the visual comparison.
 
-   Form:   magnitude comparison -> horizontal bars, sorted desc.
-   Colour: one navy hue, sequential (darker = larger). One series,
-           so there is nothing for a legend to disambiguate.
-   Labels: every bar is directly labelled, which is why the chart
-           carries no axis or gridlines -- they would only restate
-           what the labels already say.
+   Rows are authored chronologically (latest first), so bar ORDER does
+   not encode size. Magnitude is carried by bar length and by a single
+   navy ramp (darker = larger), which is why the ramp matters here more
+   than it would in a sorted chart.
    ============================================================ */
 (function () {
   'use strict';
 
-  var mount = document.getElementById('fundingChart');
-  if (!mount) return;
+  var list = document.getElementById('fundingList');
+  if (!list) return;
 
-  var cards = Array.prototype.slice.call(document.querySelectorAll('.project-card[data-amount]'));
-  if (!cards.length) return;
+  var rows = Array.prototype.slice.call(list.querySelectorAll('.funding-row[data-amount]'));
+  if (!rows.length) return;
 
-  var projects = cards
-    .map(function (card) {
-      var titleEl = card.querySelector('h4');
-      return {
-        name: card.dataset.short || (titleEl ? titleEl.textContent.trim() : ''),
-        amount: parseInt(card.dataset.amount, 10) || 0,
-        start: parseInt(card.dataset.start, 10) || 0,
-        end: parseInt(card.dataset.end, 10) || 0,
-        role: card.dataset.role || ''
-      };
-    })
-    .filter(function (p) {
-      return p.amount > 0;
-    })
-    .sort(function (a, b) {
-      return b.amount - a.amount;
-    });
-
-  if (!projects.length) return;
-
-  var max = projects[0].amount;
-  var total = projects.reduce(function (sum, p) {
-    return sum + p.amount;
-  }, 0);
-  var firstYear = Math.min.apply(
-    null,
-    projects.map(function (p) {
-      return p.start;
-    })
-  );
-  var lastYear = Math.max.apply(
-    null,
-    projects.map(function (p) {
-      return p.end;
-    })
-  );
-
-  function money(n) {
-    return 'RM ' + n.toLocaleString('en-US');
-  }
+  var amounts = rows.map(function (row) {
+    return parseInt(row.dataset.amount, 10) || 0;
+  });
+  var max = Math.max.apply(null, amounts);
+  if (!max) return;
 
   // Sequential ramp: five steps, snapped by share of the largest grant.
   function step(amount) {
@@ -72,64 +35,44 @@
     return 1;
   }
 
-  var list = document.createElement('ol');
-  list.className = 'chart-list';
-  // Every value here is repeated in the project cards directly below,
-  // which are the accessible view of this data. Announcing both would
-  // just make a screen reader read the same ten grants twice.
-  list.setAttribute('aria-hidden', 'true');
-
-  projects.forEach(function (p) {
-    var row = document.createElement('li');
-    row.className = 'chart-row';
-
-    var label = document.createElement('div');
-    label.className = 'chart-label';
-    var name = document.createElement('div');
-    name.className = 'chart-name';
-    name.textContent = p.name;
-    var years = document.createElement('div');
-    years.className = 'chart-years';
-    years.textContent = p.start + '–' + p.end + (p.role ? ' · ' + p.role : '');
-    label.appendChild(name);
-    label.appendChild(years);
-
-    var track = document.createElement('div');
-    track.className = 'chart-track';
-    var bar = document.createElement('div');
-    bar.className = 'chart-bar';
-    bar.style.setProperty('--bar', 'var(--viz-' + step(p.amount) + ')');
-    bar.dataset.width = ((p.amount / max) * 100).toFixed(1) + '%';
-    track.appendChild(bar);
-
-    var value = document.createElement('div');
-    value.className = 'chart-value';
-    value.textContent = money(p.amount);
-
-    row.appendChild(label);
-    row.appendChild(track);
-    row.appendChild(value);
-    list.appendChild(row);
+  var bars = [];
+  rows.forEach(function (row, i) {
+    var bar = row.querySelector('.funding-bar');
+    if (!bar) return;
+    bar.style.setProperty('--bar', 'var(--viz-' + step(amounts[i]) + ')');
+    bar.dataset.width = ((amounts[i] / max) * 100).toFixed(1) + '%';
+    bars.push(bar);
   });
 
-  var caption = document.createElement('p');
-  caption.className = 'chart-caption';
-  caption.innerHTML =
-    projects.length +
-    ' funded projects · <strong>' +
-    money(total) +
-    '</strong> total · ' +
-    firstYear +
-    '–' +
-    lastYear;
+  // Keep the summary line honest if a project is added and the hard-coded
+  // total in the markup is not updated to match.
+  var totalEl = document.getElementById('fundingTotal');
+  if (totalEl) {
+    var sum = amounts.reduce(function (a, b) {
+      return a + b;
+    }, 0);
+    var years = [];
+    rows.forEach(function (row) {
+      var span = row.querySelector('.funding-years');
+      if (!span) return;
+      span.textContent.split(/[–-]/).forEach(function (y) {
+        var n = parseInt(y, 10);
+        if (n) years.push(n);
+      });
+    });
+    if (years.length) {
+      totalEl.innerHTML =
+        rows.length +
+        ' funded projects · <strong>RM ' +
+        sum.toLocaleString('en-US') +
+        '</strong> total · ' +
+        Math.min.apply(null, years) +
+        '–' +
+        Math.max.apply(null, years);
+    }
+  }
 
-  mount.appendChild(list);
-  mount.appendChild(caption);
-  mount.hidden = false;
-
-  /* ---- grow the bars when the chart comes into view ---- */
-  var bars = list.querySelectorAll('.chart-bar');
-
+  /* ---- grow the bars when the list comes into view ---- */
   function draw() {
     bars.forEach(function (bar) {
       bar.style.width = bar.dataset.width;
@@ -146,8 +89,8 @@
           observer.disconnect();
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 }
     );
-    observer.observe(mount);
+    observer.observe(list);
   }
 })();
