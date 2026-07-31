@@ -1,0 +1,175 @@
+/* ============================================================
+   TOKENS — the whole design system lives here
+   Change appearance site-wide by editing this file.
+
+   Colour rule: --gold is DECORATIVE ONLY (rules, dots, card edges).
+   Gold *text* on a light surface must use --gold-ink. Both are
+   contrast-checked; the measured ratios are noted inline below.
+   ============================================================ */
+
+:root {
+  color-scheme: light;
+
+  /* ---- surfaces ---- */
+  --bg:            #f4f7fb;   /* page plane */
+  --bg-alt:        #ffffff;   /* raised / alternating sections */
+  --bg-hero:       #1a2744;   /* dark navy band: hero, nav, footer */
+  --bg-sunken:     #eef2f8;   /* icon wells, inset chips */
+
+  /* ---- ink ---- */
+  --text:          #1a2744;   /* 14.8:1 on white */
+  --text-2:        #414e63;   /*  8.4:1 on white */
+  --text-3:        #55627a;   /*  6.2:1 on white */
+
+  /* ---- ink on the navy band ---- */
+  --on-hero:       #ffffff;
+  --on-hero-2:     #8fb0cc;   /*  6.5:1 on navy */
+  --on-hero-link:  #a0b8d0;   /*  7.2:1 on navy */
+
+  /* ---- accent ---- */
+  --gold:          #c9a84c;   /* DECORATIVE ONLY — 2.3:1 on white */
+  --gold-dark:     #a8872e;
+  --gold-light:    #e8c97a;
+  --gold-ink:      #8a6d1f;   /* gold TEXT on light — 4.9:1 on white */
+  --gold-on-hero:  #c9a84c;   /* gold text on navy — 6.5:1 */
+  --gold-wash:     rgba(201, 168, 76, 0.10);
+
+  /* ---- lines ---- */
+  --divider:       #d0dae8;
+  --divider-strong:#b9c7db;
+
+  /* ---- data viz (single navy hue, sequential: darker = larger) ---- */
+  --viz-1:         #7f9dc4;
+  --viz-2:         #5f80ad;
+  --viz-3:         #426595;
+  --viz-4:         #2a4c7c;
+  --viz-5:         #1a2744;
+  --viz-grid:      #dde5f0;
+  --viz-axis:      #b9c7db;
+
+  /* ---- type ---- */
+  --font:          Inter, -apple-system, "SF Pro Text", system-ui, sans-serif;
+  --font-serif:    "Source Serif 4", Georgia, "Times New Roman", serif;
+
+  /* Fluid modular scale. --step--2 is the floor: nothing smaller ships. */
+  --step--2:       0.75rem;    /* eyebrows, tags */
+  --step--1:       0.875rem;   /* meta, captions */
+  --step-0:        1rem;       /* UI base */
+  --step-1:        1.0625rem;  /* body prose */
+  --step-2:        1.25rem;
+  --step-3:        1.5rem;
+  --step-4:        2rem;
+  --step-5:        clamp(2.25rem, 4vw, 3rem);      /* section titles */
+  --step-6:        clamp(2.75rem, 6vw, 4.25rem);   /* hero */
+
+  --lh-tight:      1.2;
+  --lh-snug:       1.45;
+  --lh-body:       1.7;
+
+  /* ---- shape ---- */
+  --radius-l:      10px;
+  --radius-m:      6px;
+  --radius-s:      4px;
+
+  --shadow-s:      0 1px 6px rgba(26, 39, 68, 0.08);
+  --shadow-m:      0 4px 20px rgba(26, 39, 68, 0.12);
+  --shadow-l:      0 12px 48px rgba(26, 39, 68, 0.22);
+
+  /* ---- layout ---- */
+  --nav-h:         56px;
+  --section-y:     6rem;
+  --container:     1200px;
+
+  /* ---- motion (zeroed under prefers-reduced-motion in base.css) ---- */
+  --dur-fast:      0.2s;
+  --dur-mid:       0.35s;
+  --dur-slow:      0.6s;
+}
+
+/* ============================================================
+   DARK THEME
+   Declared under both scopes: the media query follows the OS,
+   the [data-theme] scope follows the in-page toggle. The toggle
+   must win in BOTH directions, so the media block is guarded with
+   :not([data-theme="light"]) and lowered with :where().
+   ============================================================ */
+
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+
+    --bg:            #0f1729;
+    --bg-alt:        #16203a;
+    --bg-hero:       #0a101f;   /* darker than the page so the band still reads */
+    --bg-sunken:     #1c2846;
+
+    --text:          #e8eef7;   /* 15.3:1 on --bg */
+    --text-2:        #b6c6dc;   /* 10.3:1 */
+    --text-3:        #93a6c1;   /*  7.2:1 */
+
+    --on-hero:       #ffffff;
+    --on-hero-2:     #8fb0cc;
+    --on-hero-link:  #a0b8d0;
+
+    --gold:          #d9bc68;
+    --gold-dark:     #c9a84c;
+    --gold-light:    #f0dca5;
+    --gold-ink:      #d9bc68;   /* 9.7:1 on --bg */
+    --gold-on-hero:  #d9bc68;
+    --gold-wash:     rgba(217, 188, 104, 0.12);
+
+    --divider:       #2a3854;
+    --divider-strong:#3b4d70;
+
+    --viz-1:         #3e5a85;
+    --viz-2:         #52739f;
+    --viz-3:         #6b8cba;
+    --viz-4:         #8aa8d0;
+    --viz-5:         #aec6e4;
+    --viz-grid:      #202c4a;
+    --viz-axis:      #3b4d70;
+
+    --shadow-s:      0 1px 6px rgba(0, 0, 0, 0.5);
+    --shadow-m:      0 4px 20px rgba(0, 0, 0, 0.55);
+    --shadow-l:      0 12px 48px rgba(0, 0, 0, 0.7);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg:            #0f1729;
+  --bg-alt:        #16203a;
+  --bg-hero:       #0a101f;
+  --bg-sunken:     #1c2846;
+
+  --text:          #e8eef7;
+  --text-2:        #b6c6dc;
+  --text-3:        #93a6c1;
+
+  --on-hero:       #ffffff;
+  --on-hero-2:     #8fb0cc;
+  --on-hero-link:  #a0b8d0;
+
+  --gold:          #d9bc68;
+  --gold-dark:     #c9a84c;
+  --gold-light:    #f0dca5;
+  --gold-ink:      #d9bc68;
+  --gold-on-hero:  #d9bc68;
+  --gold-wash:     rgba(217, 188, 104, 0.12);
+
+  --divider:       #2a3854;
+  --divider-strong:#3b4d70;
+
+  --viz-1:         #3e5a85;
+  --viz-2:         #52739f;
+  --viz-3:         #6b8cba;
+  --viz-4:         #8aa8d0;
+  --viz-5:         #aec6e4;
+  --viz-grid:      #202c4a;
+  --viz-axis:      #3b4d70;
+
+  --shadow-s:      0 1px 6px rgba(0, 0, 0, 0.5);
+  --shadow-m:      0 4px 20px rgba(0, 0, 0, 0.55);
+  --shadow-l:      0 12px 48px rgba(0, 0, 0, 0.7);
+}
