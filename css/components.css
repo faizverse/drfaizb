@@ -585,10 +585,10 @@
    The section's only listing: project, funder/role/years, a
    proportional bar, and the amount.
 
-   Rows are in chronological order, so bar order carries no meaning —
-   magnitude is read from bar length plus the sequential navy ramp
-   (darker = larger). Amounts are direct-labelled, so there is no axis
-   or gridline; they would only restate the labels.
+   One series, one bar colour — length alone encodes the value. Rows are
+   in chronological order, so bar order carries no meaning either.
+   Amounts are direct-labelled, so there is no axis or gridline; they
+   would only restate the labels.
    ============================================================ */
 .funding-list {
   display: flex;
@@ -640,7 +640,7 @@
   position: absolute;
   inset: 0 auto 0 0;
   width: 0; /* js/chart.js grows this to the real value when in view */
-  background: var(--bar, var(--viz-3));
+  background: var(--viz-bar);
   /* anchored at the baseline, rounded only at the data end */
   border-radius: 0 4px 4px 0;
   transition: width var(--dur-slow) cubic-bezier(0.22, 1, 0.36, 1);

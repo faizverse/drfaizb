@@ -38,14 +38,10 @@
   --divider:       #d0dae8;
   --divider-strong:#b9c7db;
 
-  /* ---- data viz (single navy hue, sequential: darker = larger) ---- */
-  --viz-1:         #7f9dc4;
-  --viz-2:         #5f80ad;
-  --viz-3:         #426595;
-  --viz-4:         #2a4c7c;
-  --viz-5:         #1a2744;
-  --viz-grid:      #dde5f0;
-  --viz-axis:      #b9c7db;
+  /* ---- data viz ----
+     One series, one colour: bar LENGTH carries the value. A ramp here
+     would be a second encoding of the number the bar already states. */
+  --viz-bar:       #2a4c7c;
 
   /* ---- type ---- */
   --font:          Inter, -apple-system, "SF Pro Text", system-ui, sans-serif;
@@ -121,13 +117,7 @@
     --divider:       #2a3854;
     --divider-strong:#3b4d70;
 
-    --viz-1:         #3e5a85;
-    --viz-2:         #52739f;
-    --viz-3:         #6b8cba;
-    --viz-4:         #8aa8d0;
-    --viz-5:         #aec6e4;
-    --viz-grid:      #202c4a;
-    --viz-axis:      #3b4d70;
+    --viz-bar:       #8aa8d0;
 
     --shadow-s:      0 1px 6px rgba(0, 0, 0, 0.5);
     --shadow-m:      0 4px 20px rgba(0, 0, 0, 0.55);
@@ -161,13 +151,7 @@
   --divider:       #2a3854;
   --divider-strong:#3b4d70;
 
-  --viz-1:         #3e5a85;
-  --viz-2:         #52739f;
-  --viz-3:         #6b8cba;
-  --viz-4:         #8aa8d0;
-  --viz-5:         #aec6e4;
-  --viz-grid:      #202c4a;
-  --viz-axis:      #3b4d70;
+  --viz-bar:       #8aa8d0;
 
   --shadow-s:      0 1px 6px rgba(0, 0, 0, 0.5);
   --shadow-m:      0 4px 20px rgba(0, 0, 0, 0.55);

@@ -5,10 +5,9 @@
    role, years and amount are in the markup and readable without JS.
    This file adds the one thing markup can't — the visual comparison.
 
-   Rows are authored chronologically (latest first), so bar ORDER does
-   not encode size. Magnitude is carried by bar length and by a single
-   navy ramp (darker = larger), which is why the ramp matters here more
-   than it would in a sorted chart.
+   All bars share one colour: there is a single series, so bar LENGTH
+   is the only encoding needed. Rows are authored chronologically
+   (latest first), so bar order carries no meaning either.
    ============================================================ */
 (function () {
   'use strict';
@@ -25,27 +24,16 @@
   var max = Math.max.apply(null, amounts);
   if (!max) return;
 
-  // Sequential ramp: five steps, snapped by share of the largest grant.
-  function step(amount) {
-    var share = amount / max;
-    if (share >= 0.8) return 5;
-    if (share >= 0.6) return 4;
-    if (share >= 0.4) return 3;
-    if (share >= 0.2) return 2;
-    return 1;
-  }
-
   var bars = [];
   rows.forEach(function (row, i) {
     var bar = row.querySelector('.funding-bar');
     if (!bar) return;
-    bar.style.setProperty('--bar', 'var(--viz-' + step(amounts[i]) + ')');
     bar.dataset.width = ((amounts[i] / max) * 100).toFixed(1) + '%';
     bars.push(bar);
   });
 
-  // Keep the summary line honest if a project is added and the hard-coded
-  // total in the markup is not updated to match.
+  // Keep the summary line honest if a project is added and the total
+  // hard-coded in the markup is not updated to match.
   var totalEl = document.getElementById('fundingTotal');
   if (totalEl) {
     var sum = amounts.reduce(function (a, b) {
