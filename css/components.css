@@ -582,13 +582,22 @@
 
 /* ============================================================
    FUNDING LIST
-   The section's only listing: project, funder/role/years, a
-   proportional bar, and the amount.
+   The section's only listing: project, funder/role/years, the amount,
+   and a proportional bar beneath.
 
-   One series, one bar colour — length alone encodes the value. Rows are
-   in chronological order, so bar order carries no meaning either.
-   Amounts are direct-labelled, so there is no axis or gridline; they
-   would only restate the labels.
+   The bar sits on its own full-width row. That is what makes the bars
+   comparable: every track spans the same distance, so a given
+   percentage is the same pixel length in every row, and every bar
+   starts on the same left edge.
+
+   (Previously the track was a middle column. Each <li> is its own grid,
+   so the auto-sized amount column took a different width per row and
+   dragged the track width with it — 100% in one row was not 100% in
+   another. The amount column is now a fixed width for the same reason.)
+
+   One series, one bar colour: length alone encodes the value. Rows are
+   chronological, so bar order carries no meaning either. Amounts are
+   direct-labelled, so there is no axis or gridline.
    ============================================================ */
 .funding-list {
   display: flex;
@@ -600,15 +609,20 @@
 
 .funding-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(5rem, 0.62fr) auto;
-  align-items: center;
-  gap: 0 1.75rem;
-  padding: 0.85rem 0.6rem;
+  grid-template-columns: minmax(0, 1fr) 7rem;
+  align-items: start;
+  gap: 0.6rem 1.5rem;
+  padding: 1rem 0.6rem 1.05rem;
   border-bottom: 1px solid var(--divider);
   transition: background var(--dur-fast) ease;
 }
 .funding-row:hover {
   background: var(--bg-sunken);
+}
+
+.funding-main {
+  grid-column: 1;
+  grid-row: 1;
 }
 
 .funding-title {
@@ -631,10 +645,28 @@
   font-weight: 600;
 }
 
+/* Fixed width, so the column is identical in every row. */
+.funding-value {
+  grid-column: 2;
+  grid-row: 1;
+  font-size: var(--step--1);
+  font-weight: 700;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  text-align: right;
+}
+
 .funding-track {
+  grid-column: 1 / -1;
+  grid-row: 2;
   position: relative;
-  height: 14px;
-  min-width: 0;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--bg-sunken);
+}
+.funding-row:hover .funding-track {
+  background: var(--divider);
 }
 .funding-bar {
   position: absolute;
@@ -642,17 +674,8 @@
   width: 0; /* js/chart.js grows this to the real value when in view */
   background: var(--viz-bar);
   /* anchored at the baseline, rounded only at the data end */
-  border-radius: 0 4px 4px 0;
+  border-radius: 4px;
   transition: width var(--dur-slow) cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.funding-value {
-  font-size: var(--step--1);
-  font-weight: 700;
-  color: var(--text);
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-  text-align: right;
 }
 
 .funding-total {
@@ -664,29 +687,21 @@
   color: var(--text-2);
 }
 
-/* Narrow: title and amount share the top row, the bar spans beneath.
-   Cells are placed explicitly — a full-width track breaks grid
-   auto-placement and collapses the amount column to zero width. */
-@media (max-width: 720px) {
+/* Narrow: a fixed amount column would squeeze the title to ~200px and
+   wrap it to six lines. Stack instead — title, then amount, then bar. */
+@media (max-width: 560px) {
   .funding-row {
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 0.5rem 1rem;
-    padding: 0.9rem 0.6rem;
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
   }
-  .funding-main {
-    grid-column: 1;
-    grid-row: 1;
-  }
-  .funding-value {
-    grid-column: 2;
-    grid-row: 1;
-    align-self: start;
-  }
+  .funding-main,
+  .funding-value,
   .funding-track {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    height: 12px;
+    grid-column: 1;
   }
+  .funding-main  { grid-row: 1; }
+  .funding-value { grid-row: 2; text-align: left; }
+  .funding-track { grid-row: 3; }
 }
 
 /* ============================================================
