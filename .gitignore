@@ -1,5 +1,9 @@
 # macOS
 .DS_Store
 
-# Internal planning / agent docs — not part of the published site
+# Internal planning / agent docs — not part of the published site.
+# The repo root is what GitHub Pages serves, so anything committed here
+# is publicly fetchable. Keep local tooling out.
 docs/
+.claude/
+CLAUDE.md
